@@ -1,0 +1,112 @@
+
+
+1. What data types do each of these values represent?
+
+"A Clockwork Orange" - String
+42 - Integer
+09/02/1945 - Date
+98.7 - Float
+$15.99 - Currency
+
+2. Explain when a database would be used. Explain when a text file would be used.
+
+Answer: a database should be used when you have collections of data that needs classification, modifying and querying, a text file should be used if you
+have a much simpler data that you just needed to store like this homework.
+
+3. Describe one difference between SQL and other programming languages.
+
+Answer: SQL is declarative, it tells you what it wants to achieve but not entirely explaining the process of how you will reach the end goal.
+
+4. In your own words, explain how the pieces of a database system fit together at a high level.
+
+Answer: It segregates our datas and matches them according to what they are defined as values and then we use CRUD to handle our database. It is 
+essential to our everyday lives as it makes storing data easier and retrieving them as well. Without database, our datas are only
+temporarily stored. 
+
+5. Explain the meaning of table, row, column, and value.
+
+Answer: Table is a set of data elements using vertical columns and horizontal rows. Columns define what data the rows hold.
+
+6. List three data types that can be used in a table.
+
+Answer: String, number, date.
+
+7. Given this payments table, provide an English description of the following queries and include their results:
+
+     SELECT date, amount
+     FROM payments;
+
+     Answer: Query will return all the date and amount from payments table
+
+     SELECT amount
+     FROM payments
+     WHERE amount > 500;
+
+     Answer: Query will only return amounts > 500
+
+     SELECT *
+     FROM payments
+     WHERE payee = 'Mega Foods';
+
+     Answer: Query will return all information associated to the payee = 'Mega Foods';
+
+8. Given this users table, write SQL queries using the following criteria and include the output:
+
+The email and sign-up date for the user named DeAndre Data.
+The user ID for the user with email 'aleesia.algorithm@uw.edu'.
+All the columns for the user ID equal to 4.
+
+Answer:
+
+ CREATE TABLE users(
+      "userid" INTEGER,
+      "name"   VARCHAR(32),
+      "email"  VARCHAR(64),
+      "signup" DATE
+    );
+        
+    INSERT INTO users
+        ("userid", "name",              "email",                        "signup")
+    VALUES
+        ( 1,       'Aleesia Algorithm', 'aleesia.algorithm@uw.edu',     '2014-10-24'),
+        ( 2,       'DeAndre Data',      'datad@comcast.net',            '2008-01-20'),
+        ( 3,       'Chris Collection',  'chris.collection@outlook.com', '2012-01-20'),
+        ( 4,       'Brandy Boolean',    'bboolean@nasa.gov',            '1999-10-15');
+    
+
+---
+
+**Query #1**
+
+    SELECT email, signup
+    FROM users
+    WHERE name = 'DeAndre Data';
+
+| email             | signup                   |
+| ----------------- | ------------------------ |
+| datad@comcast.net | 2008-01-20T00:00:00.000Z |
+
+---
+
+**Query #2**
+
+    SELECT userid
+    FROM users
+    WHERE email =  'aleesia.algorithm@uw.edu';
+
+| userid |
+| ------ |
+| 1      |
+
+---
+
+**Query #3**
+
+    SELECT *
+    FROM users
+    WHERE userid = '4';
+
+| userid | name           | email             | signup                   |
+| ------ | -------------- | ----------------- | ------------------------ |
+| 4      | Brandy Boolean | bboolean@nasa.gov | 1999-10-15T00:00:00.000Z |
+
